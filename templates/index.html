@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CATA — AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+
+    <!-- ── Sidebar ───────────────────────────────────────────── -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-mark">◈</span>
+            <span class="logo-text">CATA</span>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">Voice</p>
+            <select id="voiceSelect" class="voice-select">
+        <option value="">Loading voices…</option>
+      </select>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">Speed</p>
+            <div class="speed-pills">
+                <button class="speed-pill" data-speed="slowest">0.5×</button>
+                <button class="speed-pill" data-speed="slow">0.75×</button>
+                <button class="speed-pill active" data-speed="normal">1×</button>
+                <button class="speed-pill" data-speed="fast">1.25×</button>
+                <button class="speed-pill" data-speed="fastest">1.5×</button>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">Status</p>
+            <div id="statusDot" class="status-row">
+                <span class="dot idle"></span>
+                <span id="statusText">Ready</span>
+            </div>
+        </div>
+
+        <button id="clearBtn" class="clear-btn">Clear chat</button>
+    </aside>
+
+    <!-- ── Main chat area ─────────────────────────────────────── -->
+    <main class="chat-main">
+        <header class="chat-header">
+            <h1>AI Assistant</h1>
+            <p class="chat-subtitle">Speak or type to start a conversation</p>
+        </header>
+
+        <div id="messages" class="messages-container">
+            <div class="welcome-hint">
+                <span class="mic-icon-hint">🎙</span>
+                <p>Press the microphone button and speak, or type a message below.</p>
+            </div>
+        </div>
+
+        <!-- ── Input bar ──────────────────────────────────────────── -->
+        <div class="input-bar">
+            <button id="micBtn" class="mic-btn" title="Hold to record">
+        <svg id="micIcon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+        <svg id="stopIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+             stroke="none" style="display:none;">
+          <rect x="4" y="4" width="16" height="16" rx="2"/>
+        </svg>
+      </button>
+
+            <textarea id="textInput" class="text-input" rows="1" placeholder="Type a message…"></textarea>
+
+            <button id="sendBtn" class="send-btn" title="Send message">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+        </div>
+
+        <p id="recordingLabel" class="recording-label" style="display:none;">
+            ● Recording… click stop when done
+        </p>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
